@@ -46,17 +46,18 @@ index 4465af1..c3cfe41 100644
  		if (i < m->nmaster) {
  			h = (m->wh - my) / (MIN(n, m->nmaster) - i);
 -			resize(c, m->wx, m->wy + my, mw - (2*c->bw), h - (2*c->bw), 0);
--			my += HEIGHT(c);
+-   if (my + HEIGHT(c) < m->wh)
+-			 my += HEIGHT(c);
 +			if (n == 1)
-+				resize(c, m->wx - c->bw, m->wy, m->ww, m->wh, False);
++				resize(c, m->wx, m->wy, m->ww - (2*c->bw), h - (2*c->bw), False);
 +			else
-+				resize(c, m->wx - c->bw, m->wy + my, mw - c->bw, h - c->bw, False);
++				resize(c, m->wx, m->wy + my, mw - c->bw, h - (2*c->bw), False);
 +			my += HEIGHT(c) - c->bw;
  		} else {
  			h = (m->wh - ty) / (n - i);
--			resize(c, m->wx + mw, m->wy + ty, m->ww - mw - (2*c->bw), h - (2*c->bw), 0);
--			ty += HEIGHT(c);
-+			resize(c, m->wx + mw - c->bw, m->wy + ty, m->ww - mw, h - c->bw, False);
+    resize(c, m->wx + mw, m->wy + ty, m->ww - mw - (2*c->bw), h - (2*c->bw), 0);
+-   if (my + HEIGHT(c) < m->wh)
+-			 ty += HEIGHT(c);
 +			ty += HEIGHT(c) - c->bw;
  		}
  }
