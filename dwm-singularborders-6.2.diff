@@ -1,17 +1,6 @@
-From cab59aac8aef1224639e5b46ab19444101f0e9f1 Mon Sep 17 00:00:00 2001
-From: aleks <aleks.stier@icloud.com>
-Date: Sun, 30 Aug 2020 17:02:42 +0200
-Subject: [PATCH] Apply singularborders-6.2
-
----
- dwm.c | 20 +++++++++++++++-----
- 1 file changed, 15 insertions(+), 5 deletions(-)
-
-diff --git a/dwm.c b/dwm.c
-index 4465af1..c3cfe41 100644
---- a/dwm.c
-+++ b/dwm.c
-@@ -783,6 +783,8 @@ expose(XEvent *e)
+--- dwm.c	Thu Feb 25 14:54:12 2021
++++ /home/tom/dwm/dwm.c	Thu Feb 25 14:44:37 2021
+@@ -784,6 +784,8 @@
  void
  focus(Client *c)
  {
@@ -20,11 +9,11 @@ index 4465af1..c3cfe41 100644
  	if (!c || !ISVISIBLE(c))
  		for (c = selmon->stack; c && !ISVISIBLE(c); c = c->snext);
  	if (selmon->sel && selmon->sel != c)
-@@ -796,6 +798,11 @@ focus(Client *c)
+@@ -797,6 +799,11 @@
  		attachstack(c);
  		grabbuttons(c, 1);
  		XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
-+		if (!c->isfloating) {
++		if(!c->isfloating){
 +			wc.sibling = selmon->barwin;
 +			wc.stack_mode = Below;
 +			XConfigureWindow(dpy, c->win, CWSibling | CWStackMode, &wc);
@@ -32,7 +21,7 @@ index 4465af1..c3cfe41 100644
  		setfocus(c);
  	} else {
  		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
-@@ -1112,7 +1119,7 @@ monocle(Monitor *m)
+@@ -1113,7 +1120,7 @@
  	if (n > 0) /* override layout symbol */
  		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
  	for (c = nexttiled(m->clients); c; c = nexttiled(c->next))
@@ -41,13 +30,13 @@ index 4465af1..c3cfe41 100644
  }
  
  void
-@@ -1687,12 +1694,15 @@ tile(Monitor *m)
+@@ -1688,14 +1695,15 @@
  	for (i = my = ty = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
  		if (i < m->nmaster) {
  			h = (m->wh - my) / (MIN(n, m->nmaster) - i);
 -			resize(c, m->wx, m->wy + my, mw - (2*c->bw), h - (2*c->bw), 0);
--   if (my + HEIGHT(c) < m->wh)
--			 my += HEIGHT(c);
+-			if (my + HEIGHT(c) < m->wh)
+-				my += HEIGHT(c);
 +			if (n == 1)
 +				resize(c, m->wx, m->wy, m->ww - (2*c->bw), h - (2*c->bw), False);
 +			else
@@ -55,13 +44,11 @@ index 4465af1..c3cfe41 100644
 +			my += HEIGHT(c) - c->bw;
  		} else {
  			h = (m->wh - ty) / (n - i);
-    resize(c, m->wx + mw, m->wy + ty, m->ww - mw - (2*c->bw), h - (2*c->bw), 0);
--   if (my + HEIGHT(c) < m->wh)
--			 ty += HEIGHT(c);
+-			resize(c, m->wx + mw, m->wy + ty, m->ww - mw - (2*c->bw), h - (2*c->bw), 0);
+-			if (ty + HEIGHT(c) < m->wh)
+-				ty += HEIGHT(c);
++	                resize(c, m->wx + mw, m->wy + ty, m->ww - mw - (2*c->bw), h - (2*c->bw), False);  	
 +			ty += HEIGHT(c) - c->bw;
  		}
  }
  
--- 
-2.28.0
-
