@@ -1,5 +1,5 @@
 # dwm-singularborders
-Original behaviour :
+## Original behaviour :
 ```
 +-----------------+--------+
 |                 ||       |
@@ -12,7 +12,7 @@ Original behaviour :
 +-----------------+--------+
 ```
 
-Old Behaviour :
+##Old Behaviour :
 ```
 +-----------------+--------+
                   |        
@@ -24,7 +24,7 @@ Old Behaviour :
                   |        
 ```
 
-New behaviour :
+##New behaviour :
 ```
 +-----------------+--------+
 |                 |        |
