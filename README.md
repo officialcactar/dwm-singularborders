@@ -1,5 +1,6 @@
 # dwm-singularborders
 Original behaviour :
+```
 +-----------------+--------+
 |                 ||       |
 |                 ||  S1   |
@@ -30,3 +31,4 @@ New behaviour :
 |                 |   S2   |
 |                 |        |
 +-----------------+--------+
+```
