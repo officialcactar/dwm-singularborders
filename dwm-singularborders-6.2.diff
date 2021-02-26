@@ -33,16 +33,6 @@ index 4465af1..66af0b0 100644
  		setfocus(c);
  	} else {
  		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
-@@ -1111,8 +1119,8 @@ monocle(Monitor *m)
- 			n++;
- 	if (n > 0) /* override layout symbol */
- 		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
-	for (c = nexttiled(m->clients); c; c = nexttiled(c->next))
--		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
-+               resize(c, m->wx - c->bw, m->wy, m->ww, m->wh, False);
- }
- 
- void
 @@ -1687,12 +1695,17 @@ tile(Monitor *m)
  	for (i = my = ty = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
  		if (i < m->nmaster) {
