@@ -1,5 +1,5 @@
 --- dwm.c	Thu Feb 25 14:54:12 2021
-+++ /home/tom/dwm/dwm.c	Thu Feb 25 14:44:37 2021
++++ dwm.c	Thu Feb 25 14:44:37 2021
 @@ -784,6 +784,8 @@
  void
  focus(Client *c)
