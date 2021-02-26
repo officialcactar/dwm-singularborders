@@ -1,14 +1,14 @@
-From 3ae56083a84083ca20db3003a59d2af93a49050b Mon Sep 17 00:00:00 2001
+From 30240a40dbc147eca8233e7c6a478853ba50a4d3 Mon Sep 17 00:00:00 2001
 From: officialcactar <officialcactar@gmail.com>
-Date: Thu, 25 Feb 2021 19:14:48 -0600
-Subject: [PATCH] borders
+Date: Thu, 25 Feb 2021 19:36:30 -0600
+Subject: [PATCH] Singular Borders
 
 ---
- dwm.c | 25 +++++++++++++++++++------
- 1 file changed, 19 insertions(+), 6 deletions(-)
+ dwm.c | 21 +++++++++++++++++----
+ 1 file changed, 17 insertions(+), 4 deletions(-)
 
 diff --git a/dwm.c b/dwm.c
-index 4465af1..66af0b0 100644
+index 4465af1..9b6514d 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -783,6 +783,8 @@ expose(XEvent *e)
