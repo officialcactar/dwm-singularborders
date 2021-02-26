@@ -1,7 +1,5 @@
-diff --git a/dwm.c b/dwm.c
-index 4465af1..c3cfe41 100644
---- a/dwm.c
-+++ b/dwm.c
+--- dwm.c.orig
++++ dwm.c	
 @@ -784,6 +784,8 @@
  void
  focus(Client *c)
