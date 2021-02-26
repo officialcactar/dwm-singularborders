@@ -1,5 +1,7 @@
---- dwm.c	Thu Feb 25 14:54:12 2021
-+++ dwm.c	Thu Feb 25 14:44:37 2021
+diff --git a/dwm.c b/dwm.c
+index 4465af1..c3cfe41 100644
+--- a/dwm.c
++++ b/dwm.c
 @@ -784,6 +784,8 @@
  void
  focus(Client *c)
