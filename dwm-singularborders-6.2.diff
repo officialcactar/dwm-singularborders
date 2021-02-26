@@ -2,7 +2,7 @@ diff --git a/dwm.c b/dwm.c
 index 4465af1..c3cfe41 100644
 --- a/dwm.c
 +++ b/dwm.c
-@@ -784,6 +784,8 @@
+@@ -783,6 +783,8 @@ expose(XEvent *e)
  void
  focus(Client *c)
  {
@@ -11,7 +11,7 @@ index 4465af1..c3cfe41 100644
  	if (!c || !ISVISIBLE(c))
  		for (c = selmon->stack; c && !ISVISIBLE(c); c = c->snext);
  	if (selmon->sel && selmon->sel != c)
-@@ -797,6 +799,11 @@
+@@ -796,6 +798,11 @@ focus(Client *c)
  		attachstack(c);
  		grabbuttons(c, 1);
  		XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
@@ -23,7 +23,7 @@ index 4465af1..c3cfe41 100644
  		setfocus(c);
  	} else {
  		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
-@@ -1113,7 +1120,7 @@
+@@ -1112,7 +1119,7 @@ monocle(Monitor *m)
  	if (n > 0) /* override layout symbol */
  		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
  	for (c = nexttiled(m->clients); c; c = nexttiled(c->next))
@@ -32,7 +32,7 @@ index 4465af1..c3cfe41 100644
  }
  
  void
-@@ -1688,14 +1695,15 @@
+@@ -1687,12 +1694,15 @@ tile(Monitor *m)
  	for (i = my = ty = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
  		if (i < m->nmaster) {
  			h = (m->wh - my) / (MIN(n, m->nmaster) - i);
