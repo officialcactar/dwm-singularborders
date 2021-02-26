@@ -1,5 +1,5 @@
 # dwm-singularborders
-<img src="https://i.ibb.co/s96KpKF/2021-02-25-215038-800x600-scrot.png" alt="Example" align="center" width="600px"/>
+<img src="https://files.catbox.moe/wiko1a.png" alt="Example" align="center" width="600px"/>
 
 ## Original behaviour :
 ```
